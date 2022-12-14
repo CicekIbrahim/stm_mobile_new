@@ -61,7 +61,7 @@ class _FindDeviceScreenState extends State<FindDeviceScreen> {
         if (snapshot.data!) {
           return FloatingActionButton(
             onPressed: () => FlutterBlue.instance.stopScan(),
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.red[12],
             child: const Icon(Icons.stop),
           );
         } else {
