@@ -9,7 +9,7 @@ class BluetoothOffScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.black87,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -21,6 +21,7 @@ class BluetoothOffScreen extends StatelessWidget {
             ),
             Text(
               'Bluetooth Adapter is ${state != null ? state.toString().substring(15) : 'not available'}.',
+              style: const TextStyle(color: Colors.white54),
             ),
           ],
         ),

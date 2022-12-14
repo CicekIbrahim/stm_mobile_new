@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // is not restarted.
@@ -25,11 +26,10 @@ class MyApp extends StatelessWidget {
           builder: (c, snapshot) {
             final state = snapshot.data;
             if (state == BluetoothState.on) {
-              return FindDeviceScreen();
+              return const FindDeviceScreen();
             }
             return BluetoothOffScreen(state: state);
           }),
     );
   }
 }
-
