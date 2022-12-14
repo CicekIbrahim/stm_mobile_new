@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: bluettothBinding(),
-      
       getPages: [
         GetPage(
             name: "/readDevices",
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'StmMobile',
       theme: ThemeData(
         // is not restarted.
         primarySwatch: Colors.blue,
