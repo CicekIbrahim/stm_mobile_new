@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
 import 'package:stm_mobile_new/viewmodel/controllers/bluetoothController.dart';
+import 'package:stm_mobile_new/viewmodel/controllers/serverController.dart';
 
 import '../core/widgets/appbar.dart';
 
@@ -15,6 +16,7 @@ class FindDeviceScreen extends StatefulWidget {
 
 final btController = Get.find<bluetoothController>();
 
+final serverController = Get.find<ServerController>();
 class _FindDeviceScreenState extends State<FindDeviceScreen> {
   @override
   Widget build(BuildContext context) {
@@ -48,8 +50,8 @@ class _FindDeviceScreenState extends State<FindDeviceScreen> {
                             onPressed: () {
                               btController.bindDevice();
                               btController.disconnectDevice();
-                     
                               btController.bindCharacteristic();
+                              
                               Get.toNamed("/dataRead");
                             },
                           ),

@@ -5,6 +5,7 @@ import 'package:toggle_switch/toggle_switch.dart';
 
 import '../core/widgets/appbar.dart';
 import '../viewmodel/controllers/bluetoothController.dart';
+import '../viewmodel/controllers/serverController.dart';
 
 class ReadDetail extends StatefulWidget {
   const ReadDetail({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class ReadDetail extends StatefulWidget {
   State<ReadDetail> createState() => _ReadDetailState();
 }
 
+final serverController = Get.find<ServerController>();
 final btController = Get.find<bluetoothController>();
 
 class _ReadDetailState extends State<ReadDetail> {
@@ -87,6 +89,11 @@ class _ReadDetailState extends State<ReadDetail> {
                 }
               },
             ),
+            Obx(() => Text(
+                  btController.data.value.toString(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                ))
           ],
         ),
       ),

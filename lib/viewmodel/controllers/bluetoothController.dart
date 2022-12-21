@@ -4,30 +4,49 @@ import 'dart:developer';
 import 'package:flutter_blue/flutter_blue.dart';
 
 import 'package:get/get.dart';
+import 'package:stm_mobile_new/views/services/IBtService.dart';
 
 class bluetoothController extends GetxController {
+  final IBtService service;
+  bluetoothController(this.service);
+  var data = "".obs;
   var devicesList = [].obs;
   BluetoothDevice? device;
   BluetoothCharacteristic? characteristic;
   List<BluetoothService> btServiceList = <BluetoothService>[];
 
-  bindDevice()async {
+  readData() async {
+   await characteristic?.setNotifyValue(true);
+    characteristic!.value.listen((value) {
+      var result = String.fromCharCodes(value);
+   
+        data.value=result;
+        print(result);
+      
+    });
+  }
+
+  bindDevice() async {
     device = devicesList.value[0].device;
   }
-  connectDevice()async{
+
+  connectDevice() async {
     await device!.connect();
   }
-  disconnectDevice()async{
+
+  disconnectDevice() async {
     await device!.disconnect();
   }
 
-  bindCharacteristic()async{
+  bindCharacteristic() async {
     await connectDevice();
-    btServiceList= await device!.discoverServices();
+    await listenService();
     await getCharacteristic();
+    await readData();
   }
+
   listenService() async {
-    btServiceList= await device!.discoverServices();
+    btServiceList = await device!.discoverServices();
   }
 
   getCharacteristic() {
