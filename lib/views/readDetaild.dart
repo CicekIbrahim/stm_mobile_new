@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
 import '../core/widgets/appbar.dart';
 import '../viewmodel/controllers/bluetoothController.dart';
 import '../viewmodel/controllers/serverController.dart';
@@ -90,7 +89,7 @@ class _ReadDetailState extends State<ReadDetail> {
               },
             ),
             Obx(() => Text(
-                  btController.data.value.toString(),
+                 "${btController.data.value.toString()} C°",
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 ))
